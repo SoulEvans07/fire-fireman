@@ -7,6 +7,92 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_LightType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapeLightParametricSides
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapeLightParametricRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapeLightParametricAngleOffset
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_LightCookieSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ad088abf6b99e460cbd97214f7bc19fd,
+        type: 3}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[3].x
+      value: -42.328568
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[3].y
+      value: 3.0740685
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[2].y
+      value: 22.80857
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[2].x
+      value: -4.5408816
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[1].x
+      value: 42.97209
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[1].y
+      value: -2.966813
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[0].y
+      value: -25.811642
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapePath.Array.data[0].x
+      value: 6.4714265
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_ShapeLightFalloffSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 121499734354580302, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 0.528
+      objectReference: {fileID: 0}
     - target: {fileID: 1162355138048540243, guid: 419734018c6cf47f18fef460ae67d3cc,
         type: 3}
       propertyPath: ShapeModule.m_Rotation.x

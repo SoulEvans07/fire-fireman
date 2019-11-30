@@ -22,6 +22,7 @@ public class Burnable : MonoBehaviour
 
     public ParticleSystem firePS;
     public Collider2D fireCollider;
+    public GameObject pointLight;
 
     private float tickInterval = 0.1f;
 
@@ -38,11 +39,11 @@ public class Burnable : MonoBehaviour
     {
         if (isBurning)
         {
-            firePS.Play();
+            StartFire();
         }
         else
         {
-            firePS.Stop();
+            StopFire();
         }
 
         fireCollider.isTrigger = true;
@@ -78,8 +79,7 @@ public class Burnable : MonoBehaviour
 
             if (health <= 0 && this.isBurning)
             {
-                this.isBurning = false;
-                firePS.Stop();
+                StopFire();
 
                 spriteRenderer.color = burntColor;
             }
@@ -96,8 +96,7 @@ public class Burnable : MonoBehaviour
             {
                 if (!this.isBurning && this.temperature >= this.inflammationTreshold)
                 {
-                    firePS.Play();
-                    this.isBurning = true;
+                    StartFire();
                 }
             }
         }
@@ -111,8 +110,7 @@ public class Burnable : MonoBehaviour
             
             if (this.isBurning && this.temperature <= this.extinguishTreshold)
             {
-                firePS.Stop();
-                this.isBurning = false;
+                StopFire();
             }
         }
     }
@@ -136,6 +134,18 @@ public class Burnable : MonoBehaviour
                 //OnCollisionTick(water.GetComponent<Water>());
             }
         }
+    }
+
+    private void StartFire() {
+        firePS.Play();
+        pointLight.SetActive(true);
+        this.isBurning = true;
+    } 
+
+    private void StopFire() {
+        firePS.Stop();
+        pointLight.SetActive(false);
+        this.isBurning = false;
     }
 
     #region DictionaryHelpers

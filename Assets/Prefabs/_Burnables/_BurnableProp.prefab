@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6812478045467329387}
   - component: {fileID: 5247199180259997911}
   m_Layer: 0
-  m_Name: BurnableProp
+  m_Name: _BurnableProp
   m_TagString: Burnable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6637a93691a3b4a088b7725a113c35a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e164477389814f69ae7c19fab7a6c74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,8 +126,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.35}
-    oldSize: {x: 20, y: 20}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 6.4, y: 6.4}
     newSize: {x: 6.4, y: 6.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -155,8 +155,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.35}
-    oldSize: {x: 20, y: 20}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 6.4, y: 6.4}
     newSize: {x: 6.4, y: 6.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -197,6 +197,7 @@ MonoBehaviour:
   minimumTemperature: -50
   firePS: {fileID: 6606287249893670909}
   fireCollider: {fileID: 6812478045467329386}
+  pointLight: {fileID: 1700828142008117375}
   burntColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
 --- !u!114 &6812478045467329387
 MonoBehaviour:
@@ -351,11 +352,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 370693682936559425, guid: 0fe552efadd014f1dab55253140f750a,
-        type: 3}
-      propertyPath: ShapeModule.m_Rotation.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 370693682936559454, guid: 0fe552efadd014f1dab55253140f750a,
         type: 3}
       propertyPath: m_SortingOrder
@@ -365,6 +361,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirePS
+      objectReference: {fileID: 0}
+    - target: {fileID: 370693682936559455, guid: 0fe552efadd014f1dab55253140f750a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264785614344102083, guid: 0fe552efadd014f1dab55253140f750a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6856009071967001586, guid: 0fe552efadd014f1dab55253140f750a,
         type: 3}
@@ -397,6 +403,12 @@ Transform:
 --- !u!198 &6606287249893670909 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 370693682936559425, guid: 0fe552efadd014f1dab55253140f750a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6812478045764487356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1700828142008117375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5264785614344102083, guid: 0fe552efadd014f1dab55253140f750a,
     type: 3}
   m_PrefabInstance: {fileID: 6812478045764487356}
   m_PrefabAsset: {fileID: 0}
