@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Burnable : MonoBehaviour
 {
-    // is flammable
     public bool isFlammable = true;
     public bool canSpreadFireToOthers = true;
 
@@ -15,8 +14,11 @@ public class Burnable : MonoBehaviour
     public float heatResistance = 1;
     public float burnIntensity = 1;
 
+    public bool isInvincible = false;
+
     public float inflammationTreshold = 90f;
     public float extinguishTreshold = 70f;
+    public float minimumTemperature = -50f;
 
     public ParticleSystem firePS;
     public Collider2D fireCollider;
@@ -24,10 +26,14 @@ public class Burnable : MonoBehaviour
     private float tickInterval = 0.1f;
 
     private float updateTimer = 0f;
+
+    private SpriteRenderer spriteRenderer;
+
+    public Color burntColor;
+
     private Dictionary<GameObject, int> collidedBurnables = new Dictionary<GameObject, int>();
+    private Dictionary<GameObject, int> collidedWaters = new Dictionary<GameObject, int>();
 
-
-    // Start is called before the first frame update
     void Awake()
     {
         if (isBurning)
@@ -40,22 +46,18 @@ public class Burnable : MonoBehaviour
         }
 
         fireCollider.isTrigger = true;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject != this.gameObject && 
-            (other.gameObject.CompareTag("Burnable") || other.gameObject.CompareTag("Player"))) 
+        if (other.gameObject != this.gameObject) 
         {
-            if (collidedBurnables.ContainsKey(other.gameObject))
+            if (other.gameObject.CompareTag("Burnable") || other.gameObject.CompareTag("Player"))
             {
-                collidedBurnables[other.gameObject]++;
+                AddToDictionary(collidedBurnables, other.gameObject);
             }
-            else
-            {
-                collidedBurnables.Add(other.gameObject, 1);
-            }
-
         }
     }
 
@@ -64,17 +66,22 @@ public class Burnable : MonoBehaviour
         if (other.gameObject != this.gameObject && 
             (other.gameObject.CompareTag("Burnable") || other.gameObject.CompareTag("Player"))) 
         {
-            collidedBurnables[other.gameObject]--;
+            RemoveFromDictionary(collidedBurnables, other.gameObject);
         }
     }
 
     void OnTick()
     {
-        if (health > 0)
+        if (health > 0 && !isInvincible && isBurning)
         {
-            if (isBurning)
+            health--;
+
+            if (health <= 0 && this.isBurning)
             {
-                health--;
+                this.isBurning = false;
+                firePS.Stop();
+
+                spriteRenderer.color = burntColor;
             }
         }
     }
@@ -85,17 +92,31 @@ public class Burnable : MonoBehaviour
         {
             this.temperature = Mathf.Min(inflammationTreshold, this.temperature + otherObject.burnIntensity / this.heatResistance);
 
-            Debug.Log("Something is heating up");
-
-            if (this.isBurning == false && this.temperature >= this.inflammationTreshold)
+            if (this.health > 0)
             {
-                firePS.Play();
-                this.isBurning = true;
+                if (!this.isBurning && this.temperature >= this.inflammationTreshold)
+                {
+                    firePS.Play();
+                    this.isBurning = true;
+                }
             }
         }
     }
 
-    // Update is called once per frame
+    void OnCollisionTick(Water otherObject)
+    {
+        if (this.isFlammable)
+        {
+            this.temperature = Mathf.Max(minimumTemperature, this.temperature - otherObject.intensity);
+            
+            if (this.isBurning && this.temperature <= this.extinguishTreshold)
+            {
+                firePS.Stop();
+                this.isBurning = false;
+            }
+        }
+    }
+
     void Update()
     {
         updateTimer += Time.deltaTime;
@@ -105,13 +126,47 @@ public class Burnable : MonoBehaviour
             updateTimer = updateTimer - tickInterval;
             OnTick();
 
-            foreach (KeyValuePair<GameObject, int> burnableTuple in collidedBurnables)
+            foreach (GameObject burnable in GetItemsFromDictionary(collidedBurnables))
             {
-                if (burnableTuple.Value > 0) 
-                {
-                    OnCollisionTick(burnableTuple.Key.gameObject.GetComponent<Burnable>());
-                }
+                OnCollisionTick(burnable.GetComponent<Burnable>());
+            }
+
+            foreach (GameObject water in GetItemsFromDictionary(collidedWaters))
+            {
+                //OnCollisionTick(water.GetComponent<Water>());
             }
         }
     }
+
+    #region DictionaryHelpers
+
+    private static void AddToDictionary<T>(Dictionary<T, int> dict, T item)
+    {
+        if (dict.ContainsKey(item))
+        {
+            dict[item]++;
+        }
+        else
+        {
+            dict.Add(item, 1);
+        }
+    }
+
+    private static void RemoveFromDictionary<T>(Dictionary<T, int> dict, T item)
+    {
+        dict[item]--;
+    }
+
+    private static IEnumerable<T> GetItemsFromDictionary<T>(Dictionary<T, int> dict)
+    {
+        foreach (KeyValuePair<T, int> tuple in dict)
+        {
+            if (tuple.Value > 0) 
+            {
+                yield return tuple.Key;
+            }
+        }
+    }
+
+    #endregion DictionaryHelpers
 }

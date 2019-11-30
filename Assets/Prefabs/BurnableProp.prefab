@@ -191,10 +191,13 @@ MonoBehaviour:
   isBurning: 0
   heatResistance: 1
   burnIntensity: 1
+  isInvincible: 0
   inflammationTreshold: 90
   extinguishTreshold: 70
+  minimumTemperature: -50
   firePS: {fileID: 6606287249893670909}
   fireCollider: {fileID: 6812478045467329386}
+  burntColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
 --- !u!114 &6812478045467329387
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private Transform _transform;
     private Rigidbody2D _rigidbody;
 
-    public float speedRatio;
     public float speed;
     
     private void Start()
