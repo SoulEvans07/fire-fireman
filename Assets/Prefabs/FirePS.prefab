@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 370693682936559424}
   - component: {fileID: 370693682936559425}
   - component: {fileID: 370693682936559454}
+  - component: {fileID: 7208966521930786585}
   m_Layer: 0
   m_Name: FirePS
   m_TagString: Untagged
@@ -4755,6 +4756,20 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7208966521930786585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370693682936559455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd5bc91e55de464587f94e817a6eeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  TargetOffset: 0
 --- !u!1 &5264785614344102083
 GameObject:
   m_ObjectHideFlags: 0
