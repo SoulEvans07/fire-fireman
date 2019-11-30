@@ -34,6 +34,7 @@ public class WaterGun : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         Vector3 target = cam.ScreenToWorldPoint(mousePos);
         target.z = 0;
+        cursor.position = target;
 
         dir = (target - waistPoint.position).normalized;
         angle = Vector2.Angle(Vector2.up, dir);

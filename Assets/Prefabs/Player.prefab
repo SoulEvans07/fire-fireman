@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8300698847354397386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508249176816797617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd5bc91e55de464587f94e817a6eeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 8509259505008805328}
+  TargetOffset: 2
 --- !u!1 &8300698846469811513
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,8 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e2bed9efcd34425b17c4560492ba27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRatio: 0.66
-  speed: 30
+  speed: 35
 --- !u!114 &8300698846469811519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,24 +283,13 @@ MonoBehaviour:
   isBurning: 1
   heatResistance: 1
   burnIntensity: 1
+  isInvincible: 1
   inflammationTreshold: 90
   extinguishTreshold: 70
+  minimumTemperature: -50
   firePS: {fileID: 370693682936559425, guid: a097176a300c94900bc450aa76ad0fe8, type: 3}
   fireCollider: {fileID: 8300698846469811506}
---- !u!114 &8300698847045309557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8509259505008805327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd5bc91e55de464587f94e817a6eeb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 8300698846469811514}
-  TargetOffset: 1
+  burntColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8300698847304031280
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,20 +391,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &8300698847354397386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508249176816797617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd5bc91e55de464587f94e817a6eeb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 8509259505008805328}
-  TargetOffset: 2
 --- !u!1 &8300698847355050995
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +451,20 @@ Transform:
   m_Father: {fileID: 8300698846469811514}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8300698847045309557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8509259505008805327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd5bc91e55de464587f94e817a6eeb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 8300698846469811514}
+  TargetOffset: 1
 --- !u!1001 &8300698847122862736
 PrefabInstance:
   m_ObjectHideFlags: 0

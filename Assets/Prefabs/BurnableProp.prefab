@@ -197,7 +197,7 @@ MonoBehaviour:
   minimumTemperature: -50
   firePS: {fileID: 6606287249893670909}
   fireCollider: {fileID: 6812478045467329386}
-  burntColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+  burntColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
 --- !u!114 &6812478045467329387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -271,7 +271,7 @@ GameObject:
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -356,10 +356,25 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Rotation.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 370693682936559454, guid: 0fe552efadd014f1dab55253140f750a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 370693682936559455, guid: 0fe552efadd014f1dab55253140f750a,
         type: 3}
       propertyPath: m_Name
       value: FirePS
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856009071967001586, guid: 0fe552efadd014f1dab55253140f750a,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856009071967001586, guid: 0fe552efadd014f1dab55253140f750a,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -2105421805
       objectReference: {fileID: 0}
     - target: {fileID: 7208966521930786585, guid: 0fe552efadd014f1dab55253140f750a,
         type: 3}
