@@ -22,7 +22,7 @@ public class ColliderCalculator : MonoBehaviour
     {
         _collider = GetComponent<PolygonCollider2D>();
 
-        
+        CalcCollider();
     }
 
     private void CalcCollider() {
