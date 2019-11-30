@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private const float tan30 = 0.57735026918f;
+
     private Transform _transform;
     private Rigidbody2D _rigidbody;
 
@@ -25,6 +27,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move(float x, float y) {
-        _rigidbody.velocity = new Vector2(x * speed * speedRatio, y * speed);
+        _rigidbody.velocity = new Vector2(
+            x * speed,
+            y * speed * tan30
+        );
     }
 }
