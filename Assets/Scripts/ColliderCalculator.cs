@@ -7,10 +7,13 @@ public class ColliderCalculator : MonoBehaviour
 {
     private const float tan30 = 0.57735026918f;
 
-    private PolygonCollider2D _collider;
+    public PolygonCollider2D hardCollider;
+    public PolygonCollider2D fireCollider;
 
     public Transform pointLeft;
     public Transform pointRight;
+
+    public float fireRange;
 
     private Vector2 positionLeft;
     private Vector2 positionRight;
@@ -20,12 +23,27 @@ public class ColliderCalculator : MonoBehaviour
 
     void Awake()
     {
-        _collider = GetComponent<PolygonCollider2D>();
-
-        CalcCollider();
+        CalcColliders();
     }
 
-    private void CalcCollider() {
+    private void CalcColliders()
+    {
+        if (hardCollider || fireCollider) {
+            CalcBoundingRect();
+        }
+
+        if (hardCollider) {
+            CalcHardCollider();
+        }
+
+        if (fireCollider) {
+            CalcFireCollider();
+        }
+
+    }
+
+    private void CalcBoundingRect() 
+    {
         positionLeft = pointLeft.localPosition;
         positionRight = pointRight.localPosition;
 
@@ -51,12 +69,33 @@ public class ColliderCalculator : MonoBehaviour
             positionUp = new Vector2(positionRight.x - cosinusSmall, topY);
             positionDown = new Vector2(positionLeft.x + cosinusSmall, baseY);
         }
+    }
 
-        _collider.SetPath(0, new[] { positionLeft, positionUp, positionRight, positionDown });
+    private void CalcHardCollider() 
+    {
+        hardCollider.SetPath(0, new[] { positionLeft, positionUp, positionRight, positionDown });
+    }
+
+    private void CalcFireCollider()
+    {
+        float rangeX = fireRange;
+        float rangeY = fireRange * tan30;
+
+        fireCollider.SetPath(0, new[] 
+        { 
+            new Vector2(positionLeft.x - rangeX, positionLeft.y - rangeY),
+            new Vector2(positionLeft.x - rangeX, positionLeft.y + rangeY),
+            new Vector2(positionUp.x - rangeX, positionUp.y + rangeY),
+            new Vector2(positionUp.x + rangeX, positionUp.y + rangeY),
+            new Vector2(positionRight.x + rangeX, positionRight.y + rangeY),
+            new Vector2(positionRight.x + rangeX, positionRight.y - rangeY),
+            new Vector2(positionDown.x + rangeX, positionDown.y - rangeY),
+            new Vector2(positionDown.x - rangeX, positionDown.y - rangeY)
+        });
     }
 
     void Update()
     {
-        CalcCollider();
+        CalcColliders();
     }
 }
