@@ -21,6 +21,12 @@ public class Burnable : MonoBehaviour
     public ParticleSystem firePS;
     public Collider2D fireCollider;
 
+    private float tickInterval = 0.1f;
+
+    private float updateTimer = 0f;
+    private Dictionary<GameObject, int> collidedBurnables = new Dictionary<GameObject, int>();
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -38,16 +44,27 @@ public class Burnable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.gameObject != this.gameObject && 
+            (other.gameObject.CompareTag("Burnable") || other.gameObject.CompareTag("Player"))) 
+        {
+            if (collidedBurnables.ContainsKey(other.gameObject))
+            {
+                collidedBurnables[other.gameObject]++;
+            }
+            else
+            {
+                collidedBurnables.Add(other.gameObject, 1);
+            }
+
+        }
     }
 
-    private void OnTriggerStay2D(Collider2D other) 
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (
-            other.gameObject != this.gameObject 
-            && other.gameObject.CompareTag("Burnable")) 
+        if (other.gameObject != this.gameObject && 
+            (other.gameObject.CompareTag("Burnable") || other.gameObject.CompareTag("Player"))) 
         {
-            OnCollisionTick(other.gameObject.GetComponent<Burnable>());
+            collidedBurnables[other.gameObject]--;
         }
     }
 
@@ -68,6 +85,8 @@ public class Burnable : MonoBehaviour
         {
             this.temperature = Mathf.Min(inflammationTreshold, this.temperature + otherObject.burnIntensity / this.heatResistance);
 
+            Debug.Log("Something is heating up");
+
             if (this.isBurning == false && this.temperature >= this.inflammationTreshold)
             {
                 firePS.Play();
@@ -79,6 +98,20 @@ public class Burnable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OnTick();
+        updateTimer += Time.deltaTime;
+
+        if (updateTimer > tickInterval)
+        {
+            updateTimer = updateTimer - tickInterval;
+            OnTick();
+
+            foreach (KeyValuePair<GameObject, int> burnableTuple in collidedBurnables)
+            {
+                if (burnableTuple.Value > 0) 
+                {
+                    OnCollisionTick(burnableTuple.Key.gameObject.GetComponent<Burnable>());
+                }
+            }
+        }
     }
 }
