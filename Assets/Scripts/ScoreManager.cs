@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public InGameMenu menu;
-    public Slider slider;
+    public Slider healthSlider;
+    public Slider timerSlider;
 
     public float maxHealth = 0;
     public float health;
@@ -13,23 +14,24 @@ public class ScoreManager : MonoBehaviour
     public float gameOverTresholdRatio = 0.8f;
     private float baseHealth;
 
-    public List<Burnable> props = new List<Burnable>();
+    public GameObject furnitureParent;
+    public Burnable[] props;
 
     private void Start()
     {
+        props = furnitureParent.GetComponentsInChildren<Burnable>();
         foreach (Burnable prop in props)
         {
             if (!prop.isInvincible)
             {
                 maxHealth += prop.maxHealth;
-
             }
         }
 
         baseHealth = maxHealth * gameOverTresholdRatio;
 
-        slider.maxValue = maxHealth - baseHealth;
-        slider.value = maxHealth - baseHealth;
+        healthSlider.maxValue = maxHealth - baseHealth;
+        healthSlider.value = maxHealth - baseHealth;
     }
 
     private void FixedUpdate()
@@ -50,9 +52,8 @@ public class ScoreManager : MonoBehaviour
             menu.Win();
         }
 
-        slider.value = health - baseHealth;
-
-        if (slider.value <= 0)
+        healthSlider.value = health - baseHealth;
+        if (healthSlider.value <= 0)
         {
             menu.GameOver();
         }
