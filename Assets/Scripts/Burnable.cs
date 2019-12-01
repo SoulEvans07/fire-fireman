@@ -108,11 +108,11 @@ public class Burnable : MonoBehaviour
 
     void OnCollisionTick(Burnable otherObject)
     {
-        if (this.isFlammable && otherObject.isBurning && otherObject.canSpreadFireToOthers)
+        if (otherObject.isBurning && otherObject.canSpreadFireToOthers)
         {
             this.temperature = Mathf.Min(inflammationTreshold, this.temperature + otherObject.burnIntensity / this.heatResistance);
 
-            if (this.health > 0)
+            if (this.health > 0 && this.isFlammable)
             {
                 if (!this.isBurning && this.temperature >= this.inflammationTreshold)
                 {
@@ -124,14 +124,11 @@ public class Burnable : MonoBehaviour
 
     void OnCollisionTick(Water otherObject)
     {
-        if (this.isFlammable)
-        {
-            this.temperature = Mathf.Max(minimumTemperature, this.temperature - otherObject.intensity);
+        this.temperature = Mathf.Max(minimumTemperature, this.temperature - otherObject.intensity);
 
-            if (this.isBurning && this.temperature <= this.extinguishTreshold)
-            {
-                StopFire();
-            }
+        if (this.isBurning && this.temperature <= this.extinguishTreshold)
+        {
+            StopFire();
         }
     }
 
