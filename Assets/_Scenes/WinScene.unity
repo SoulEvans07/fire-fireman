@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -306,8 +306,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1932745069}
-  - {fileID: 864429445}
   - {fileID: 55703981}
+  - {fileID: 864429445}
   - {fileID: 1176222373}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -327,7 +327,7 @@ PrefabInstance:
     - target: {fileID: 5879901939649717060, guid: c9c5fed55a2124117bc0ae8017af52c6,
         type: 3}
       propertyPath: m_Text
-      value: EXIT
+      value: BACK TO MAIN MENu
       objectReference: {fileID: 0}
     - target: {fileID: 5879901939660760666, guid: c9c5fed55a2124117bc0ae8017af52c6,
         type: 3}
@@ -367,7 +367,7 @@ PrefabInstance:
     - target: {fileID: 5879901939660760666, guid: c9c5fed55a2124117bc0ae8017af52c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5879901939660760666, guid: c9c5fed55a2124117bc0ae8017af52c6,
         type: 3}
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fireman Fireman
+  m_text: WINNER IS YOU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -571,10 +571,10 @@ MonoBehaviour:
   m_margin: {x: -292.47055, y: 0, z: -292.88605, w: -51.612453}
   m_textInfo:
     textComponent: {fileID: 1176222374}
-    characterCount: 15
+    characterCount: 13
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -751,7 +751,7 @@ PrefabInstance:
     - target: {fileID: 5879901939649717060, guid: c9c5fed55a2124117bc0ae8017af52c6,
         type: 3}
       propertyPath: m_Text
-      value: START
+      value: NEXT LEVEL
       objectReference: {fileID: 0}
     - target: {fileID: 5879901939660760666, guid: c9c5fed55a2124117bc0ae8017af52c6,
         type: 3}
@@ -791,7 +791,7 @@ PrefabInstance:
     - target: {fileID: 5879901939660760666, guid: c9c5fed55a2124117bc0ae8017af52c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5879901939660760666, guid: c9c5fed55a2124117bc0ae8017af52c6,
         type: 3}
@@ -861,7 +861,7 @@ PrefabInstance:
     - target: {fileID: 5879901939660760667, guid: c9c5fed55a2124117bc0ae8017af52c6,
         type: 3}
       propertyPath: m_Name
-      value: StartButton
+      value: ContinueButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c5fed55a2124117bc0ae8017af52c6, type: 3}
