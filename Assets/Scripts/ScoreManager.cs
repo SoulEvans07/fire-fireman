@@ -12,6 +12,8 @@ public class ScoreManager : MonoBehaviour
     public float health;
 
     public float gameOverTresholdRatio = 0.8f;
+    public float waitingTime = 10f;
+    private float timer;
     private float baseHealth;
 
     public GameObject furnitureParent;
@@ -32,9 +34,11 @@ public class ScoreManager : MonoBehaviour
 
         healthSlider.maxValue = maxHealth - baseHealth;
         healthSlider.value = maxHealth - baseHealth;
+
+        timerSlider.gameObject.SetActive(false);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         health = 0;
         bool isBurning = false;
@@ -49,8 +53,23 @@ public class ScoreManager : MonoBehaviour
 
         if (!isBurning)
         {
-            menu.Win();
+            timerSlider.gameObject.SetActive(true);
+            if (timer < waitingTime)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                menu.Win();
+            }
         }
+        else
+        {
+            timerSlider.gameObject.SetActive(false);
+            timer = 0;
+        }
+
+        timerSlider.value = (waitingTime - timer) / waitingTime;
 
         healthSlider.value = health - baseHealth;
         if (healthSlider.value <= 0)
