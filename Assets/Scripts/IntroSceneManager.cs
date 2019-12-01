@@ -4,12 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class IntroSceneManager : MonoBehaviour
 {
-    private int current = 0;
+    public string next = "Level 1";
+    public int current = 0;
     public List<GameObject> slides;
 
     private void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.anyKey)
         {
             LoadNext();
         }
@@ -20,12 +21,12 @@ public class IntroSceneManager : MonoBehaviour
         current++;
         if (current < slides.Count)
         {
-            slides[current--].SetActive(false);
+            slides[current-1].SetActive(false);
             slides[current].SetActive(true);
         }
         else
         {
-            SceneManager.LoadScene("Level 1");
+            SceneManager.LoadScene(next);
         }
     }
 }
