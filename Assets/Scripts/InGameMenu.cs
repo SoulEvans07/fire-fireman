@@ -49,11 +49,13 @@ public class InGameMenu : MonoBehaviour {
 
     public void GameOver() {
         Time.timeScale = 0;
+        losePanel.SetActive(true);
         isGameOver = true;
     }
 
     public void Win() {
         Time.timeScale = 0;
+        winPanel.SetActive(true);
         isGameOver = true;
     }
 }

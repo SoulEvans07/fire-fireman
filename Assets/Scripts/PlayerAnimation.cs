@@ -30,6 +30,8 @@ public class PlayerAnimation : MonoBehaviour {
 
     private void Update()
     {
+        if (Time.timeScale == 0) return;
+
         Vector3 mousePos = Input.mousePosition;
         Vector3 target = cam.ScreenToWorldPoint(mousePos);
         target.z = 0;

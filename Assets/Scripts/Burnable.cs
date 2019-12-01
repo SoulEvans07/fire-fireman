@@ -51,6 +51,7 @@ public class Burnable : MonoBehaviour
         if (isBurning)
         {
             StartFire();
+            temperature = inflammationTreshold;
         }
         else
         {

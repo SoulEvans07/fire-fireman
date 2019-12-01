@@ -25,6 +25,8 @@ public class WaterGun : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
+           
         int state = animController.state;
         int prevState = animController.prevState;
 
