@@ -22,6 +22,7 @@ public class PlayerAnimation : MonoBehaviour {
 
     private void Awake()
     {
+        Time.timeScale = 1;
         _transform = transform;
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
