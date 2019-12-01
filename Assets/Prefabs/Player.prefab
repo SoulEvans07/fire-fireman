@@ -1073,6 +1073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlammable: 1
   canSpreadFireToOthers: 1
+  maxHealth: 0
   health: 100
   temperature: 100
   isBurning: 1
@@ -1085,6 +1086,8 @@ MonoBehaviour:
   firePS: {fileID: 370693682936559425, guid: a097176a300c94900bc450aa76ad0fe8, type: 3}
   fireCollider: {fileID: 8300698846469811506}
   pointLight: {fileID: 0}
+  wetColor: {r: 0, g: 0, b: 0, a: 0}
+  heatColor: {r: 0, g: 0, b: 0, a: 0}
   burntColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8300698847304031280
 GameObject:
