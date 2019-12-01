@@ -26,7 +26,7 @@ public class WaterGun : MonoBehaviour
     void Update()
     {
         if (Time.timeScale == 0) return;
-           
+
         int state = animController.state;
         int prevState = animController.prevState;
 
@@ -40,7 +40,7 @@ public class WaterGun : MonoBehaviour
             water.SetActive(true);
         }
 
-        if (Input.GetButtonUp(SHOOT_KEY))
+        if (Input.GetButtonUp(SHOOT_KEY) && water != null)
         {
             water.SetActive(false);
             water = null;
