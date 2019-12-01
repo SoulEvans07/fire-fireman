@@ -53,21 +53,32 @@ public class Burnable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject != this.gameObject) 
+        if (other.gameObject != this.gameObject)
         {
             if (other.gameObject.CompareTag("Burnable") || other.gameObject.CompareTag("Player"))
             {
                 AddToDictionary(collidedBurnables, other.gameObject);
+            }
+
+            if (other.gameObject.CompareTag("Water"))
+            {
+                AddToDictionary(collidedWaters, other.gameObject);
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject != this.gameObject && 
-            (other.gameObject.CompareTag("Burnable") || other.gameObject.CompareTag("Player"))) 
-        {
-            RemoveFromDictionary(collidedBurnables, other.gameObject);
+        if (other.gameObject != this.gameObject) {
+            if (other.gameObject.CompareTag("Burnable") || other.gameObject.CompareTag("Player"))
+            {
+                RemoveFromDictionary(collidedBurnables, other.gameObject);
+            }
+
+            if (other.gameObject.CompareTag("Water"))
+            {
+                RemoveFromDictionary(collidedWaters, other.gameObject);
+            }
         }
     }
 
@@ -107,7 +118,7 @@ public class Burnable : MonoBehaviour
         if (this.isFlammable)
         {
             this.temperature = Mathf.Max(minimumTemperature, this.temperature - otherObject.intensity);
-            
+
             if (this.isBurning && this.temperature <= this.extinguishTreshold)
             {
                 StopFire();
@@ -131,18 +142,20 @@ public class Burnable : MonoBehaviour
 
             foreach (GameObject water in GetItemsFromDictionary(collidedWaters))
             {
-                //OnCollisionTick(water.GetComponent<Water>());
+                OnCollisionTick(water.GetComponent<Water>());
             }
         }
     }
 
-    private void StartFire() {
+    private void StartFire()
+    {
         firePS.Play();
         pointLight.SetActive(true);
         this.isBurning = true;
-    } 
+    }
 
-    private void StopFire() {
+    private void StopFire()
+    {
         firePS.Stop();
         pointLight.SetActive(false);
         this.isBurning = false;
@@ -171,7 +184,7 @@ public class Burnable : MonoBehaviour
     {
         foreach (KeyValuePair<T, int> tuple in dict)
         {
-            if (tuple.Value > 0) 
+            if (tuple.Value > 0)
             {
                 yield return tuple.Key;
             }

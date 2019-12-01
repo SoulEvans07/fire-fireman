@@ -16,17 +16,25 @@ public class WaterGun : MonoBehaviour
     public Camera cam;
     public LayerMask shootableMask;
 
-    public Transform cursor;
-    private bool pressed = false;
+    
 
     public Vector2 dir;
     public float angle;
     public int state = 0;
 
+    public Transform cursor;
+    public List<GameObject> waterStreams;
+    public GameObject water;
+
     private void Awake()
     {
         _transform = transform;
         _animator = GetComponent<Animator>();
+
+        foreach (GameObject ws in waterStreams)
+        {
+            ws.SetActive(false);
+        }
     }
 
     void Update()
@@ -40,6 +48,7 @@ public class WaterGun : MonoBehaviour
         angle = Vector2.Angle(Vector2.up, dir);
         if (dir.x < 0) angle = 360 - angle;
 
+        int prevState = state;
         state = (int) Mathf.Ceil(Mathf.Floor(angle / L_ANGLE / 0.5f) / 2);
         if(state == 8) {
             state = 0;
@@ -48,14 +57,19 @@ public class WaterGun : MonoBehaviour
         _animator.SetInteger(ANIMATOR_STATE, state);
 
 
-        if (Input.GetButtonDown(SHOOT_KEY) || pressed)
+        if (Input.GetButtonDown(SHOOT_KEY) || water != null)
         {
-            pressed = true;
+            water = waterStreams[state];
+            if (prevState != state) {
+                waterStreams[prevState].SetActive(false);
+            }
+            water.SetActive(true);
         }
 
         if (Input.GetButtonUp(SHOOT_KEY))
         {
-            pressed = false;
+            water.SetActive(false);
+            water = null;
         }
     }
 }

@@ -194,7 +194,7 @@ MonoBehaviour:
   isInvincible: 0
   inflammationTreshold: 90
   extinguishTreshold: 70
-  minimumTemperature: -50
+  minimumTemperature: -20
   firePS: {fileID: 6606287249893670909}
   fireCollider: {fileID: 6812478045467329386}
   pointLight: {fileID: 1700828142008117375}
