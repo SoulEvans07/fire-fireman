@@ -620,7 +620,7 @@ MonoBehaviour:
   maxHealth: 0
   health: 0
   gameOverTresholdRatio: 0.9
-  waitingTime: 10
+  waitingTime: 5
   matchBox: {fileID: 8901695773086631523}
   goodMatch: {fileID: 21300000, guid: 0455defa81fc24b9dbc4fd7755fbe954, type: 3}
   burntMatch: {fileID: 21300000, guid: 050000c23113b4548bbcc8366fbf0483, type: 3}
