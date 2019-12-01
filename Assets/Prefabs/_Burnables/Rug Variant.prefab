@@ -324,6 +324,11 @@ PrefabInstance:
       propertyPath: inflammationTreshold
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 6812478045467329381, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: heatResistance
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6812478045467329386, guid: 419734018c6cf47f18fef460ae67d3cc,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
@@ -422,7 +427,7 @@ PrefabInstance:
     - target: {fileID: 6812478045467329387, guid: 419734018c6cf47f18fef460ae67d3cc,
         type: 3}
       propertyPath: fireRange
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6812478046424094631, guid: 419734018c6cf47f18fef460ae67d3cc,
         type: 3}

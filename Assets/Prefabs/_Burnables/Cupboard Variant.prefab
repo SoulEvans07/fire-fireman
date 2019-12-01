@@ -278,6 +278,11 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
       value: -2.6147006
       objectReference: {fileID: 0}
+    - target: {fileID: 6812478045467329387, guid: 419734018c6cf47f18fef460ae67d3cc,
+        type: 3}
+      propertyPath: fireRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6812478046424094631, guid: 419734018c6cf47f18fef460ae67d3cc,
         type: 3}
       propertyPath: m_LocalPosition.y

@@ -1287,7 +1287,7 @@ MonoBehaviour:
   fireCollider: {fileID: 8300698846469811506}
   pointLeft: {fileID: 8300698847304031283}
   pointRight: {fileID: 8300698847355050994}
-  fireRange: 4
+  fireRange: 6
 --- !u!114 &8300698846469811504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,6 +1313,7 @@ MonoBehaviour:
   extinguishTreshold: 70
   minimumTemperature: -50
   firePS: {fileID: 370693682936559425, guid: a097176a300c94900bc450aa76ad0fe8, type: 3}
+  extraFirePS: []
   fireCollider: {fileID: 8300698846469811506}
   pointLight: {fileID: 8300698847317901223}
   wetColor: {r: 0, g: 0, b: 0, a: 0}

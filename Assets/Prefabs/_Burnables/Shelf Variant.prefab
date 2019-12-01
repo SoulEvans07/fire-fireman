@@ -107,6 +107,11 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[7].y
       value: -5.931238
       objectReference: {fileID: 0}
+    - target: {fileID: 7782755181550760923, guid: 4207310b60d634f9d8f64f105959e078,
+        type: 3}
+      propertyPath: fireRange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8021575885350088672, guid: 4207310b60d634f9d8f64f105959e078,
         type: 3}
       propertyPath: m_LocalPosition.x

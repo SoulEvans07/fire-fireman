@@ -22,6 +22,9 @@ public class Burnable : MonoBehaviour
     public float minimumTemperature = -50f;
 
     public ParticleSystem firePS;
+
+    public List<ParticleSystem> extraFirePS;
+
     public Collider2D fireCollider;
     public GameObject pointLight;
 
@@ -190,6 +193,14 @@ public class Burnable : MonoBehaviour
 
     private void StartFire()
     {
+        if (extraFirePS != null)
+        {
+            foreach (ParticleSystem ps in extraFirePS)
+            {
+                ps.Play();
+            }
+        }
+
         firePS.Play();
         pointLight.SetActive(true);
         this.isBurning = true;
@@ -197,6 +208,14 @@ public class Burnable : MonoBehaviour
 
     private void StopFire()
     {
+        if (extraFirePS != null)
+        {
+            foreach (ParticleSystem ps in extraFirePS)
+            {
+                ps.Stop();
+            }
+        }
+
         firePS.Stop();
         pointLight.SetActive(false);
         this.isBurning = false;
