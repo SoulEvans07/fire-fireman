@@ -16,6 +16,11 @@ public class ScoreManager : MonoBehaviour
     private float timer;
     private float baseHealth;
 
+    public GameObject matchBox;
+    private Image[] matches;
+    public Sprite goodMatch;
+    public Sprite burntMatch;
+
     public GameObject furnitureParent;
     public Burnable[] props;
 
@@ -36,19 +41,38 @@ public class ScoreManager : MonoBehaviour
         healthSlider.value = maxHealth - baseHealth;
 
         timerSlider.gameObject.SetActive(false);
+
+        matches = matchBox.GetComponentsInChildren<Image>();
+        foreach (Image match in matches)
+        {
+            match.sprite = goodMatch;
+        }
     }
 
     private void Update()
     {
         health = 0;
         bool isBurning = false;
+        int burntCount = 0;
         foreach (Burnable prop in props)
         {
             if (!prop.isInvincible)
             {
                 health += prop.health;
                 isBurning = isBurning || prop.isBurning;
+                if (prop.health == 0) {
+                    burntCount++;
+                }
             }
+        }
+
+        for (int i = 0; i < burntCount; i++) {
+            matches[matches.Length - 1 - i].sprite = burntMatch;
+        }
+
+        if (burntCount >= matches.Length) {
+            menu.GameOver();
+            return;
         }
 
         if (!isBurning)
@@ -61,6 +85,7 @@ public class ScoreManager : MonoBehaviour
             else
             {
                 menu.Win();
+                return;
             }
         }
         else
@@ -75,6 +100,7 @@ public class ScoreManager : MonoBehaviour
         if (healthSlider.value <= 0)
         {
             menu.GameOver();
+            return;
         }
     }
 }

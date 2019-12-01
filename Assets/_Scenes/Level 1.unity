@@ -5665,6 +5665,11 @@ PrefabInstance:
       propertyPath: furnitureParent
       value: 
       objectReference: {fileID: 1238935146}
+    - target: {fileID: 250169461248182575, guid: 6112abfef5abf47399b2bcf92ce0a692,
+        type: 3}
+      propertyPath: gameOverTresholdRatio
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4746411709189502963, guid: 6112abfef5abf47399b2bcf92ce0a692,
         type: 3}
       propertyPath: m_AnchorMax.y
