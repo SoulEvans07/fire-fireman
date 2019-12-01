@@ -66,7 +66,7 @@ public class ScoreManager : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < burntCount; i++) {
+        for (int i = 0; i < Mathf.Min(burntCount, matches.Length); i++) {
             matches[matches.Length - 1 - i].sprite = burntMatch;
         }
 
