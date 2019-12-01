@@ -8,11 +8,21 @@ public class IntroSceneManager : MonoBehaviour
     public int current = 0;
     public List<GameObject> slides;
 
+    private bool buttonDown = false;
+
     private void Update()
     {
         if (Input.anyKey)
         {
-            LoadNext();
+            if (!buttonDown)
+            {
+                buttonDown = true;
+                LoadNext();
+            }
+        }
+        else 
+        {
+            buttonDown = false;
         }
     }
 
