@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4357885184029659721
 Transform:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7509322923414637086
 Transform:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5695601171982970151
 Transform:
   m_ObjectHideFlags: 0
@@ -472,7 +472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6985192334856344106
 Transform:
   m_ObjectHideFlags: 0
@@ -618,7 +618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5628635451825270260
 Transform:
   m_ObjectHideFlags: 0
@@ -764,7 +764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8187354960614077064
 Transform:
   m_ObjectHideFlags: 0
@@ -910,7 +910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7023569485572907370
 Transform:
   m_ObjectHideFlags: 0
@@ -1045,8 +1045,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8300698846469811514}
-  - component: {fileID: 8300698846469811505}
   - component: {fileID: 8300698846469811515}
+  - component: {fileID: 8464251926375545088}
   - component: {fileID: 8300698846469811516}
   - component: {fileID: 8300698846469811512}
   - component: {fileID: 8300698846469811506}
@@ -1055,6 +1055,7 @@ GameObject:
   - component: {fileID: 8300698846469811518}
   - component: {fileID: 8300698846469811507}
   - component: {fileID: 8300698846469811504}
+  - component: {fileID: 8077390750413680371}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1082,25 +1083,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8300698846469811505
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8300698846469811513}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bfcdc1a910e414f69b8d48534f082673, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &8300698846469811515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1150,6 +1132,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8464251926375545088
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300698846469811513}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bfcdc1a910e414f69b8d48534f082673, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &8300698846469811516
 Rigidbody2D:
   serializedVersion: 4
@@ -1260,16 +1261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SHOOT_KEY: Fire1
-  waistPoint: {fileID: 8300698847502582905}
-  _animator: {fileID: 0}
-  cam: {fileID: 0}
-  shootableMask:
-    serializedVersion: 2
-    m_Bits: 1280
-  dir: {x: 0, y: 0}
-  angle: 0
-  state: 0
-  cursor: {fileID: 0}
   waterStreams:
   - {fileID: 7105802244839722611}
   - {fileID: 3104123773551707892}
@@ -1327,6 +1318,23 @@ MonoBehaviour:
   wetColor: {r: 0, g: 0, b: 0, a: 0}
   heatColor: {r: 0, g: 0, b: 0, a: 0}
   burntColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &8077390750413680371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300698846469811513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ad6d0607e704838aacea827efb54fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waistPoint: {fileID: 8300698847502582905}
+  cam: {fileID: 0}
+  state: 0
+  prevState: 0
+  cursor: {fileID: 0}
 --- !u!1 &8300698847304031280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,7 +1530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6526574275671557786
 Transform:
   m_ObjectHideFlags: 0
