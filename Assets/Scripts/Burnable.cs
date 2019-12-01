@@ -7,6 +7,7 @@ public class Burnable : MonoBehaviour
     public bool isFlammable = true;
     public bool canSpreadFireToOthers = true;
 
+    public float maxHealth;
     public float health = 100f;
     public float temperature = 0;
     public bool isBurning = false;
@@ -30,13 +31,20 @@ public class Burnable : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private Color baseColor;
+    public Color wetColor;
+    public Color heatColor;
     public Color burntColor;
+    private Color targetColor;
 
     private Dictionary<GameObject, int> collidedBurnables = new Dictionary<GameObject, int>();
     private Dictionary<GameObject, int> collidedWaters = new Dictionary<GameObject, int>();
 
     void Awake()
     {
+        maxHealth = health;
+        baseColor = Color.white;
+
         if (isBurning)
         {
             StartFire();
@@ -69,7 +77,8 @@ public class Burnable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject != this.gameObject) {
+        if (other.gameObject != this.gameObject)
+        {
             if (other.gameObject.CompareTag("Burnable") || other.gameObject.CompareTag("Player"))
             {
                 RemoveFromDictionary(collidedBurnables, other.gameObject);
@@ -144,6 +153,41 @@ public class Burnable : MonoBehaviour
             {
                 OnCollisionTick(water.GetComponent<Water>());
             }
+        }
+
+        UpdateColor();
+    }
+
+    public static Color CombineColors(params Color[] aColors)
+    {
+        Color result = new Color(0, 0, 0, 0);
+        foreach (Color c in aColors)
+        {
+            result += c;
+        }
+        result /= aColors.Length;
+        return result;
+    }
+
+    private void UpdateColor()
+    {
+        if (isInvincible) return;
+
+        if (isBurning || health == 0)
+        {
+            baseColor = Color.Lerp(Color.white, burntColor, (maxHealth - health) / maxHealth);
+            targetColor = burntColor;
+            spriteRenderer.color = baseColor;
+        }
+        else if (temperature < 0)
+        {
+            targetColor = CombineColors(baseColor, wetColor);
+            spriteRenderer.color = Color.Lerp(baseColor, targetColor, temperature / minimumTemperature);
+        }
+        else
+        {
+            targetColor = CombineColors(baseColor, heatColor);
+            spriteRenderer.color = Color.Lerp(baseColor, targetColor, temperature / inflammationTreshold);
         }
     }
 

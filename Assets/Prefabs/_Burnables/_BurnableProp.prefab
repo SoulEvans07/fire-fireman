@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFlammable: 1
   canSpreadFireToOthers: 1
+  maxHealth: 0
   health: 100
   temperature: 0
   isBurning: 0
@@ -198,6 +199,8 @@ MonoBehaviour:
   firePS: {fileID: 6606287249893670909}
   fireCollider: {fileID: 6812478045467329386}
   pointLight: {fileID: 1700828142008117375}
+  wetColor: {r: 0.77254903, g: 0.99215686, b: 1, a: 1}
+  heatColor: {r: 1, g: 0.7019608, b: 0.56078434, a: 1}
   burntColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
 --- !u!114 &6812478045467329387
 MonoBehaviour:
