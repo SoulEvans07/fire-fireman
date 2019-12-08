@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5802,6 +5802,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6112abfef5abf47399b2bcf92ce0a692, type: 3}
+--- !u!223 &5695836250966009553 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5695836250864467488, guid: 6112abfef5abf47399b2bcf92ce0a692,
+    type: 3}
+  m_PrefabInstance: {fileID: 5695836250966009552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5823169123895051541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6016,6 +6022,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46db4e10c665a47f49ec7afbd7df54f1, type: 3}
+--- !u!1001 &6481593121620729424
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.46075147
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.4859886
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 57.932453
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491886471290835682, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602396165371934186, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: uiCanvas
+      value: 
+      objectReference: {fileID: 5695836250966009553}
+    - target: {fileID: 4707907080948251664, guid: 90f7fd1d4b5af454f8ef6d15721df039,
+        type: 3}
+      propertyPath: m_Name
+      value: SettingsController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 90f7fd1d4b5af454f8ef6d15721df039, type: 3}
 --- !u!1001 &8300698847025146281
 PrefabInstance:
   m_ObjectHideFlags: 0
