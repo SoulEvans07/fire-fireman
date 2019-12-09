@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenu : MonoBehaviour {
     public GameObject pausePanel;
+    public GameObject settingsPanel;
     public GameObject winPanel;
     public GameObject losePanel;
 
@@ -14,6 +15,7 @@ public class InGameMenu : MonoBehaviour {
         pausePanel.SetActive(false);
         winPanel.SetActive(false);
         losePanel.SetActive(false);
+        settingsPanel.SetActive(false);
     }
 
     private void Update() {
@@ -39,6 +41,16 @@ public class InGameMenu : MonoBehaviour {
 
     public void Pause() {
         Time.timeScale = 0;
+        pausePanel.SetActive(true);
+    }
+
+    public void SettingsMenu() {
+        settingsPanel.SetActive(true);
+        pausePanel.SetActive(false);
+    }
+
+    public void BackToPauseMenu() {
+        settingsPanel.SetActive(false);
         pausePanel.SetActive(true);
     }
 
