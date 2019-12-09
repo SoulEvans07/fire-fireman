@@ -6,29 +6,45 @@ public class SettingsController : MonoBehaviour
     public static string UI_SCALE = "UI_SCALE";
     public Canvas uiCanvas;
     public float defaultUIScale = 1f;
-    public float uiScale = 1f;
+    public float uiScaleValue = 1f;
     public Slider uiScaleSlider;
+
+    public Button applyButton;
 
     private void Start()
     {
-        LoadSettingsData();
-        ApplySettings();
+        ResetSettings();
+    }
+
+    private void Update() {
+        if (uiScaleSlider != null && applyButton != null) {
+            if (uiScaleSlider.value == uiScaleValue) {
+                applyButton.interactable = false;
+            } else if (!applyButton.interactable) {
+                applyButton.interactable = true;
+            }
+        }
     }
 
     private void LoadSettingsData()
     {
         if (PlayerPrefs.HasKey(UI_SCALE))
         {
-            uiScale = PlayerPrefs.GetFloat(UI_SCALE);
+            uiScaleValue = PlayerPrefs.GetFloat(UI_SCALE);
             if (uiScaleSlider != null)
             {
-                uiScaleSlider.value = uiScale;
+                uiScaleSlider.value = uiScaleValue;
             }
         }
         else
         {
             PlayerPrefs.SetFloat(UI_SCALE, defaultUIScale);
         }
+    }
+
+    public void ResetSettings() {
+        LoadSettingsData();
+        ApplySettings();
     }
 
     public void ApplySettings()
@@ -41,8 +57,8 @@ public class SettingsController : MonoBehaviour
     {
         if (uiScaleSlider != null)
         {
-            uiScale = uiScaleSlider.value;
-            PlayerPrefs.SetFloat(UI_SCALE, uiScale);
+            uiScaleValue = uiScaleSlider.value;
+            PlayerPrefs.SetFloat(UI_SCALE, uiScaleValue);
             PlayerPrefs.Save();
         }
     }
@@ -51,7 +67,7 @@ public class SettingsController : MonoBehaviour
     {
         if (uiCanvas != null)
         {
-            uiCanvas.scaleFactor = this.uiScale;
+            uiCanvas.scaleFactor = this.uiScaleValue;
         }
     }
 }
